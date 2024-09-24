@@ -4,9 +4,7 @@ SHELL ["/bin/bash", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive
 
 # setup timezone
-RUN echo 'Asia/Tokyo' > /etc/timezone && \
-    ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
-    apt-get update && DEBIAN_FRONTEND=noninteractive && \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive && \
     apt-get install -q -y --no-install-recommends \
         tzdata && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
